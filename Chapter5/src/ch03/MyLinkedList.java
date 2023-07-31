@@ -16,6 +16,7 @@ public class MyLinkedList {
 		
 		if(head == null) {
 			newNode = new MyListNode(data);
+			head = newNode;
 		} else {
 			newNode = new MyListNode(data);
 			MyListNode temp = head;
@@ -67,19 +68,77 @@ public class MyLinkedList {
 		
 	}
 	
-//	public MyListNode removeElement(int position) {
-//		
-//	}
-//	
-//	public String getElement(int position) {
-//		
-//	}
-//	
-//	public MyListNode getNode(int position) {
-//		
-//	}
+	public MyListNode removeElement(int position) {
+		
+		int i;
+		
+		MyListNode tempNode = head;
+		MyListNode preNode = null;
+		
+		if(position == 0) {
+			head = tempNode.next;
+		} else {
+			for(i=0; i<position; i++) {
+				preNode = tempNode;
+				tempNode = tempNode.next;
+			}
+			
+			preNode.next = tempNode.next;
+		}
+		count--;
+		
+		return tempNode;
+	}
+	
+	public String getElement(int position) {
+	
+		int i;
+		
+		MyListNode preNode = head;
+		MyListNode tempNode = null;
+		
+		if(position >= count) {
+			System.out.println("검색 위치 오류입니다. 현재 리스트의 개수는 " + count + "개 입니다");
+			return new String("error");
+		}
+		
+		if(position == 0) {
+			return head.getData();
+		} else {
+			for(i=0; i<position; i++) {
+				preNode = tempNode;
+				tempNode = tempNode.next;
+			}
+			return tempNode.getData();
+		}
+		
+	}
+	
+	public MyListNode getNode(int position) {
+		
+		int i;
+		
+		MyListNode tempNode = head;
+		
+		if(position >= count) {
+			System.out.println("검색 위치 오류입니다. 현재 리스트의 개수는 " + count + "개 입니다");
+			return null;
+		}
+		
+		if(position == 0) {
+			return head;
+		} else {
+			for(i=0; i<position; i++) {
+				tempNode = tempNode.next;
+			}
+			return tempNode;
+		}
+	}
 	
 	public void removeAll() {
+		
+		head = null;
+		count = 0;
 		
 	}
 	
@@ -88,6 +147,22 @@ public class MyLinkedList {
 	}
 	
 	public void printAll() {
+		
+		if(count == 0) {
+			System.out.println("No data to print out");
+			return;
+		}
+		
+		MyListNode temp = head;
+		
+		for(int i=0; i<count; i++) {
+			System.out.print(temp.getData());
+			temp = temp.next;
+			if(temp != null) {
+				System.out.print("->");
+			}
+		}
+		System.out.println("");
 		
 	}
 	

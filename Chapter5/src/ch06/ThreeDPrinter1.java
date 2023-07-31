@@ -1,6 +1,6 @@
 package ch06;
 
-public class TreeDPrinter1 {
+public class ThreeDPrinter1 {
 
 	private Powder material;
 	

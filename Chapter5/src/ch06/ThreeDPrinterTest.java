@@ -1,11 +1,11 @@
 package ch06;
 
-public class TreeDPrinterTest {
+public class ThreeDPrinterTest {
 
 	public static void main(String[] args) {
 		
 		Powder powder = new Powder();
-		TreeDPrinter3 printer = new TreeDPrinter3();
+		ThreeDPrinter3 printer = new ThreeDPrinter3();
 		
 		printer.setMaterial(powder);
 		Powder p = (Powder)printer.getMaterial();

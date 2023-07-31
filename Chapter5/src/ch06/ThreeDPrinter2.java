@@ -1,6 +1,6 @@
 package ch06;
 
-public class TreeDPrinter2 {
+public class ThreeDPrinter2 {
 	
 	private Plastic material;
 
